@@ -101,8 +101,7 @@ def classifier(cf_threshold, softrules = True, hardrules = True, learning = True
     false_overfit = 0
     total_correct = 0
     total_incorrect = 0
-    path = "/Users/thanhdeku/Research/Data/patchValidation/patchsim/confidence_score/patches"
-    list_patches = os.listdir(path)
+    list_patches = os.listdir("ICSE22_data/data/raw_invariants/patchsim_139/patches")
     count = 0
     idx2id = read_idx2id()
     learning_prob= ut.read_learning_distance()
@@ -235,4 +234,4 @@ def classifier(cf_threshold, softrules = True, hardrules = True, learning = True
     return true_overfit, false_overfit, list_correct, rs4project_tp, rs4project_fp, total_incorrect_perproject, total_correct_perproject
 
 if __name__ == "__main__":
-    print(classifier(0))
+    print(classifier(0, softrules = False, hardrules = True, learning = True, only_learning = False))
